@@ -7,7 +7,7 @@ func UpdateUserStatus(id int, name string) error {
 	// NewDbConnでconnection作成
 	// userオブジェクトは本来GetByIdから取得
 	user := model.User{
-		ID: id,
+		ID:   id,
 		Name: name,
 	}
 

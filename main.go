@@ -6,7 +6,7 @@ import (
 	"net/http"
 )
 
-func main()  {
+func main() {
 	http.HandleFunc("/", controller.Handler)
 
 	log.Fatal(http.ListenAndServe(":8080", nil))
