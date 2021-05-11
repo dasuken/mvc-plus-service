@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/noguchidaisuke/mvc-plus-service/model"
+	"github.com/noguchidaisuke/mvc-plus-service/service"
 	"net/http"
 	"strconv"
 )
@@ -13,12 +14,10 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 	name := r.FormValue("name")
 	id, _ := strconv.Atoi(idStr)
 
-	user := model.User{
-		ID: id,
-		Name: name,
+	err := service.UpdateUserStatus(id, name)
+	if err != nil {
+		// error 処理
 	}
-
-	model.UpdateUser(&user)
 
 	b, err := json.Marshal(model.Users)
 	if err != nil {
